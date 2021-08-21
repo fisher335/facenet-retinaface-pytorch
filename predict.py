@@ -49,6 +49,8 @@ if __name__ == "__main__":
                 image   = cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
                 r_image = retinaface.detect_image(image)
                 r_image = cv2.cvtColor(r_image,cv2.COLOR_RGB2BGR)
+                # 把图片弄小点，如果太大屏幕看不全，因为cv2的界面不支持自动缩放
+                r_image = cv2.resize(r_image, (300, 300))
                 cv2.imshow("after",r_image)
                 cv2.waitKey(0)
 
